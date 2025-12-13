@@ -1,42 +1,134 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* Base palette from Tailwind variables stays, but we enforce our premium background */
+    @apply text-foreground;
+    background-color: #050505;
+    /* Layered lighting + noise */
+    background-image:
+      /* Soft but noticeable violet/magenta glow slightly left-center */
+      radial-gradient(1000px circle at 30% 50%, rgba(124, 58, 237, 0.22), rgba(167, 139, 250, 0.12) 35%, rgba(5, 5, 5, 0) 65%),
+      /* Subtle wide gradient lighting for depth */
+      linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(5, 5, 5, 0.0) 40%, rgba(167, 139, 250, 0.05) 70%, rgba(5, 5, 5, 0.0) 100%),
+      /* Strengthen and diversify noise */
+      /* Replace previous single noise with stacked multi-scale noise */
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n1"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n1)" opacity="0.12"/></svg>'),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320"><filter id="n2"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n2)" opacity="0.07"/></svg>'),
+      /* Fine dither-style pattern for micro-grain */
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 3px);
+    background-blend-mode: screen, normal, overlay, multiply, normal;
+    background-size:
+      120% 120%, 100% 100%, 160px 160px,
+      320px 320px,
+      100% 100%;
+    background-position: center, center, center, center, center;
+    /* Keep effects clean */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    isolation: isolate;
+    min-height: 100vh;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Left-side abstract curved strokes (non-repeating accent) */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1; /* sit behind content */
+    background:
+      /* Single SVG cluster on the left */
+      url('data:image/svg+xml;utf8,\
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\">\
+        <defs>\
+          <linearGradient id=\"g1\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\
+            <stop offset=\"0%\" stop-color=\"#7C3AED\"/>\
+            <stop offset=\"60%\" stop-color=\"#A78BFA\"/>\
+            <stop offset=\"100%\" stop-color=\"#ff77aa\"/>\
+          </linearGradient>\
+        </defs>\
+        <g opacity=\"0.18\">\
+          <path d=\"M -12 22 C 18 10, 40 30, 62 20 S 92 5, 112 20\" fill=\"none\" stroke=\"url(%23g1)\" stroke-width=\"0.55\"/>\
+          <path d=\"M -8 40 C 22 34, 44 56, 66 44 S 96 30, 116 44\" fill=\"none\" stroke=\"url(%23g1)\" stroke-width=\"0.40\" opacity=\"0.75\"/>\
+          <path d=\"M -16 66 C 14 60, 36 82, 58 70 S 88 56, 108 70\" fill=\"none\" stroke=\"url(%23g1)\" stroke-width=\"0.28\" opacity=\"0.55\"/>\
+        </g>\
+      </svg>');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 40% 100%;
+    opacity: 0.9; /* maintain visibility but keep elegant */
+    mix-blend-mode: screen;
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  /* Subtle vignette to keep edges clean */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(1200px circle at 50% 50%, rgba(5,5,5,0) 60%, rgba(5,5,5,0.4) 100%);
   }
 }
