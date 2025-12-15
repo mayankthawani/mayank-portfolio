@@ -1,5 +1,7 @@
 import React from 'react'
 import Hero from '../components/Hero' // capitalize component usage
+import Navbar from '@/components/Navbar'
+import Projects from '@/components/Projects'
 
 const page = () => {
   return (
@@ -21,7 +23,18 @@ const page = () => {
           opacity: 0.9,
         }}
       />
-      <Hero />
+      <Navbar />
+
+<main className="relative">
+  <section id="home">
+    <Hero />
+  </section>
+
+  <section id="projects" className="scroll-mt-24">
+    <Projects />
+  </section>
+</main>
+
     </div>
   )
 }
