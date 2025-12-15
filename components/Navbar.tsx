@@ -6,7 +6,7 @@ const Navbar = () => {
       <nav className="fixed left-0 top-0 w-full z-50 px-6 py-4 
   bg-black/30 backdrop-blur-lg border-b border-white/10">
 
-        <div className='flex justify-between items-center max-w-8xl mx-auto '>
+        <div className='flex justify-between items-center max-w-7xl mx-auto '>
             <div className='text-white font-serif text-lg '>
                 Mayank <span className='text-violet-400'>.</span>
 
