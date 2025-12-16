@@ -1,6 +1,7 @@
 import Hero from '../components/Hero'
 import Navbar from '@/components/Navbar'
 import Projects from '@/components/Projects'
+import Skills from '@/components/Skills'
 
 const page = () => {
   return (
@@ -30,6 +31,11 @@ const page = () => {
         <section id="projects" className="min-h-screen scroll-mt-24">
           <Projects />
         </section>
+
+        <section id="skills" className="min-h-screen scroll-mt-24">
+          <Skills />
+        </section>
+        
       </main>
 
     </div>
