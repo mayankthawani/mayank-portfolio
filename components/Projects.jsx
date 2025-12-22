@@ -138,7 +138,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent font-bold mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-center px-2"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent font-bold mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-center px-2"
         >
           Featured Projects
         </motion.h2>
@@ -163,7 +163,7 @@ const Projects = () => {
             ref={scrollContainerRef}
             className="overflow-x-auto pb-3 sm:pb-4 scroll-smooth scrollbar-hide touch-pan-x"
           >
-            <div className="flex gap-3 xs:gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 px-1 sm:px-2">
+            <div className="flex gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 px-1 sm:px-2">
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
@@ -172,10 +172,10 @@ const Projects = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="group relative flex flex-col flex-shrink-0 w-[280px] xs:w-[300px] sm:w-[340px] md:w-[380px] lg:w-[420px] xl:w-[460px] rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border border-violet-500/20 hover:border-violet-500/50 transition-all duration-300 shadow-lg hover:shadow-violet-500/20 bg-gray-900/50"
+                  className="group relative flex flex-col flex-shrink-0 w-[320px] sm:w-[360px] md:w-[400px] lg:w-[440px] xl:w-[480px] rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border border-violet-500/20 hover:border-violet-500/50 transition-all duration-300 shadow-lg hover:shadow-violet-500/20 bg-gray-900/50"
                 >
                   {/* Image Section */}
-                  <div className="relative h-40 xs:h-44 sm:h-52 md:h-56 lg:h-64 w-full overflow-hidden">
+                  <div className="relative h-48 sm:h-56 md:h-60 lg:h-68 w-full overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -190,27 +190,27 @@ const Projects = () => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="flex flex-col flex-grow p-3 xs:p-4 sm:p-5 md:p-6 space-y-2 xs:space-y-2.5 sm:space-y-3 md:space-y-4">
-                    <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:text-violet-300 transition-colors line-clamp-1">
+                  <div className="flex flex-col flex-grow p-4 sm:p-5 md:p-6 space-y-2.5 sm:space-y-3 md:space-y-4">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:text-violet-300 transition-colors line-clamp-1">
                       {project.title}
                     </h3>
 
-                    <p className="text-[11px] xs:text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed flex-grow line-clamp-3 sm:line-clamp-4">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed flex-grow line-clamp-3 sm:line-clamp-4">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1 xs:gap-1.5 sm:gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {project.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-1.5 py-0.5 xs:px-2 sm:px-3 sm:py-1 text-[9px] xs:text-[10px] sm:text-xs font-medium bg-violet-500/20 text-violet-200 border border-violet-400/30 rounded-full"
+                          className="px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-medium bg-violet-500/20 text-violet-200 border border-violet-400/30 rounded-full"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <button className="w-full mt-1.5 xs:mt-2 sm:mt-3 px-3 py-1.5 xs:py-2 sm:px-4 sm:py-2.5 bg-violet-600 text-white rounded-md sm:rounded-lg hover:bg-violet-700 transition-all text-[11px] xs:text-xs sm:text-sm font-medium">
+                    <button className="w-full mt-2 sm:mt-3 px-3 py-2 sm:px-4 sm:py-2.5 bg-violet-600 text-white rounded-md sm:rounded-lg hover:bg-violet-700 transition-all text-xs sm:text-sm font-medium">
                       View Project →
                     </button>
                   </div>
