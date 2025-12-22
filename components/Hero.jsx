@@ -55,7 +55,7 @@ const Hero = () => {
         </div>
 
         {/* Text content - Second on all screens */}
-        <div className="w-full md:max-w-xl text-center">
+        <div className="w-full md:max-w-xl text-center md:text-left">
            <div className="flex flex-col gap-3 sm:gap-4">
       
       {/* RUNNING TEXT GREETING */}
@@ -63,7 +63,7 @@ const Hero = () => {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="overflow-hidden h-5 sm:h-6"
+        className="overflow-hidden h-5 sm:h-6 mx-auto md:mx-0 md:w-full"
       >
         <motion.p
           initial={{ x: "100%" }}
@@ -108,7 +108,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="max-w-md mx-auto text-sm sm:text-base leading-relaxed text-gray-300 px-4 sm:px-0"
+        className="max-w-md mx-auto md:mx-0 text-sm sm:text-base leading-relaxed text-gray-300 px-4 sm:px-0"
         style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
       >
         I build secure, scalable web applications and turn ideas into real-world
@@ -120,7 +120,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.8 }}
-        className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-2 sm:mt-4 px-4 sm:px-0"
+        className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-2 sm:mt-4 px-4 sm:px-0 justify-center md:justify-start"
       >
         <button className="px-5 py-2.5 sm:px-6 sm:py-3 border border-violet-500 text-white rounded-lg hover:bg-violet-500/10 transition text-sm sm:text-base">
           View Projects
